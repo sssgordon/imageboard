@@ -8,4 +8,10 @@ router.get("/image", (request, response, next) => {
     .catch(next);
 });
 
+router.post("/image", (request, response, next) => {
+  Image.create(request.body)
+    .then(newImage => response.send(newImage))
+    .catch(next);
+});
+
 module.exports = router;
